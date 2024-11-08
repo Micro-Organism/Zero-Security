@@ -1,0 +1,44 @@
+spring:
+    application:
+        name: zero-protobuf-boot
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+        username: root
+        password: root@123
+
+mybatis:
+    mapper-locations:
+        - classpath:mapper/**/*.xml
+#    type-aliases-package: com.zero.security.boot.entity
+#    config-location: classpath:mybatis-config.xml
+#    mapper-package: com.zero.security.boot.mapper
+    configuration:
+        map-underscore-to-camel-case: true
+        cache-enabled: false
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+        lazy-loading-enabled: true
+        aggressive-lazy-loading: true
+        multiple-result-sets-enabled: true
+        use-column-label: true
+        use-generated-keys: true
+        auto-mapping-behavior: partial
+        default-executor-type: simple
+        default-statement-timeout: 25000
+        default-fetch-size: 100
+        safe-result-handler-enabled: true
+
+#mybatis-plus:
+#    mapper-locations: classpath:mapper/**/*.xml  # mapper映射文件（默认存在）
+#    type-aliases-package: com.zero.security.boot.entity # 别名包
+#    configuration:
+#        map-underscore-to-camel-case: true # 是否开启下划线与驼峰的映射（默认打开）
+#        cache-enabled: false # 是否开启二级缓存（默认关闭）
+#    global-config:      # 全局配置
+#        db-config:
+#            id-type: auto #id+1自增策略（默认assign_id雪花算法）
+#            update-strategy: not_empty #null与''都忽略（默认not_null:只忽略null）
+#            # 下面的配置：将所有的删除语句更改为修改语句
+#            logic-delete-field: isDelete # 是否删除；全局逻辑删除的实体字段名，字段类型可以是boolean、integer
+#            logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+#            logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
